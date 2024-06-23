@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetPlayers</title>
+
+    <link rel="stylesheet" href="{% static '/css/base.css '%}">
+</head>
+<body>
+    <h1>Players List</h1>
+    <div class="player_container">
+    {% for player in players%}
+    <div class="players">
+        {% if player.profile_pic %}
+            <img src="{{ player.profile_pic.url }}" alt="{{ player.first_name }}'s Profile Picture" style="width:250px; height: 220px;">
+        {% else %}
+        <p>No Profile Picture</p>
+        {% endif %}
+        <br><br>
+        <label>Name : </label>{{player.first_name}} {{player.last_name}}<br>
+        <label>Email : </label>{{player.email}}<br>
+        <label> High_Score: </label>{{player.high_score}}<br>
+        <label>High_Wicket : </label>{{player.high_wic}}<br>
+        <label>Specialty : </label>{{player.specialty}}<br>
+        <label>Coacher :</label>{{player.coached_by.first_name}} {{player.coached_by.last_name}}<br>
+        <label>Matches_Played :</label> {{player.matches_played}}<br><br>
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

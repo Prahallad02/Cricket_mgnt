@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetCoach</title>
+
+   
+    <link rel="stylesheet"  href="{% static '/css/base.css' %}">
+</head>
+<body>
+        <h1>Coachers List</h1>
+        <div class="coach-container">
+        {% for coach in coaches%}
+
+    <div class="coach">
+
+        <label ><strong>Profile Picture</strong></label><br><br>
+        {% if coach.profile_pic %}
+                <img src="{{ coach.profile_pic.url }}" alt="{{ coach.first_name }}'s Profile Picture" style="width:250px; height: 180px;">
+            {% else %}
+                <p>No profile picture available</p>
+            {% endif %}<br><br>
+        <label>Name : </label>{{coach.first_name}} {{coach.last_name}}<br>
+        <label>Email : </label>{{coach.email}}<br>
+        <label> Specialty: </label>{{coach.specialty}}<br>
+        <label>Experience : </label>{{coach.experience}}<br><br>
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+
+        {% endfor %}
+  
+    </div>
+</body>
+</html>

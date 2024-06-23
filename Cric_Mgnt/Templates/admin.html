@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+</head>
+<body>
+    
+    <div class="admin_container">
+    
+   <form method="get" action="{% url 'getCoaches'%}">
+    <h2>Get Coachers</h2>  
+    <button type="submit" class="btn">Get Coaches</button>
+    </form>
+
+    <form method="get" action="{% url 'postFormCoaches'%}">
+        <h2>Add Coachers</h2>
+        <button type="submit" class="btn">ADD Coaches</button>
+    </form>
+
+    <form method="get" action="{% url 'getPlayers'%}">
+        <h2>Get Players</h2>
+        <button type="submit" class="btn">Get Players</button>
+    </form>
+   
+    <form method="get" action="{% url 'postFormPlayers'%}">
+       <h2>Add Players</h2>
+        <button type="submit" class="btn">ADD Players</button>
+    </form><br><br>
+    
+    <form method="post" action="{% url 'logout' %}" class="logout">
+       <h4> Hello , {{mail}} </h4>
+        <button type="submit" class="btn">LOGOUT🔏</button>
+    </form>
+   
+
+</div>
+</body>
+</html>

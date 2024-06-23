@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostCoach</title>
+</head>
+<body>
+    <h1>ADD COACH</h1>
+    
+    <form method="post" action="{% url 'postCoaches' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+
+
+        {% if message %} 
+         {{message}}
+        {% endif %}
+
+
+        {% if errors %} 
+          {{errors}}
+        {% endif %} 
+         
+         
+        {% if failed %} 
+         {{failed}}
+        {% endif %}
+
+
+        <button type="submit">ADD➕</button>
+    </form>
+</body>
+</html> 
